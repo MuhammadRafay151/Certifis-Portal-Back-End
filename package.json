@@ -1,0 +1,31 @@
+{
+  "name": "e-cert-contact-back-end",
+  "version": "1.0.0",
+  "description": "Contact feature of E-Cert",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadAamir21/E-Cert-Contact-Back-End.git"
+  },
+  "author": "Muhammad Aamir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MuhammadAamir21/E-Cert-Contact-Back-End/issues"
+  },
+  "homepage": "https://github.com/MuhammadAamir21/E-Cert-Contact-Back-End#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.1",
+    "mongoose": "^5.12.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "database": {
+        "devurl": "mongodb://localhost:27017/org",
+        "url": "mongodb+srv://Admin1:15DhA4X99ApnacqZ@certifiscluster.btf5x.mongodb.net/org?retryWrites=true&w=majority"
+    }
+}
