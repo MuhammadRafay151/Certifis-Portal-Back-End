@@ -7,18 +7,18 @@ const { validationResult } = require('express-validator')
 
 
 
-router.post('/', ContactValidation,async (req, res) => {
+router.post('/', ContactValidation, async (req, res) => {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-       return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     var cont = new contact({
         name: req.body.name,
         email: req.body.email,
-        orgname:req.body.orgname,
-        subject:req.body.subject,
+        orgname: req.body.orgname,
+        subject: req.body.subject,
         description: req.body.description,
         request_date: Date.now()
     })
@@ -48,7 +48,7 @@ router.get("/details", async (req, res) => {
     res.json(result)
 })
 
-router.get("/detail", async (req, res) => {
+router.get("/DeleteAll", async (req, res) => {
 
     var result = await contact.deleteMany({})
     res.json(result)

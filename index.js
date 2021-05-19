@@ -3,6 +3,8 @@ const app = express();
 const server = require('http').createServer(app);
 const config = require('config');
 const contact = require('./Routes/contact');
+const organization = require('./Routes/organization');
+
 var cors = require('cors')
 
 
@@ -14,12 +16,14 @@ app.use(express.json());
 app.use(cors())
 
 app.use("/api/contact", contact)
+app.use("/api/organization", organization)
+
 
 
 
 app.get("/", (req, res) => {
-    res.status(200).send("Welcome User <br/>Your Application is up and runnig <br/>Enjoy!");
-  });
+  res.status(200).send("Welcome User <br/>Your Application is up and runnig <br/>Enjoy!");
+});
 
 
 mongoose.set('useFindAndModify', false);
