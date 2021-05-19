@@ -3,6 +3,7 @@ const app = express();
 const server = require('http').createServer(app);
 const config = require('config');
 const contact = require('./Routes/contact');
+const orgcontact = require('./Routes/orgcontact');
 const organization = require('./Routes/organization');
 
 var cors = require('cors')
@@ -17,6 +18,8 @@ app.use(cors())
 
 app.use("/api/contact", contact)
 app.use("/api/organization", organization)
+app.use("/api/orgcontact", orgcontact)
+
 
 
 

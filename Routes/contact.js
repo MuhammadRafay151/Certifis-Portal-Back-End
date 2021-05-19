@@ -31,17 +31,6 @@ router.post('/', ContactValidation, async (req, res) => {
     }
 })
 
-router.get("/", async (req, res) => {
-
-    var perpage = 5
-    var pageno = req.query.pageno
-    if (isNaN(parseInt(pageno))) { pageno = 1 }
-    var result = await contact.find().sort({ request_date: "-1" }).skip(pagination.Skip(pageno, perpage)).limit(perpage);;
-    var total = await contact.find().countDocuments();
-    result = { "list": result, totalcount: total }
-    res.json(result)
-})
-
 router.get("/details", async (req, res) => {
 
     var result = await contact.find().sort({ request_date: "-1" });;

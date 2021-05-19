@@ -15,6 +15,7 @@ router.post('/', OrganizationValidation, async (req, res) => {
 
     var org = new organization({
         name: req.body.name,
+        email: req.body.email
     })
     try {
         var r1 = await org.save()
@@ -36,6 +37,7 @@ router.put('/:id', OrganizationValidation, async (req, res) => {
     try {
         let org = await organization.findOneAndUpdate({ _id: req.params.id }, {
             name: req.body.name,
+            email: req.body.email
         }, { new: true })
         res.json(org)
     }

@@ -1,6 +1,10 @@
 {
     "database": {
-        "devurl": "mongodb://localhost:27017/org",
-        "url": "mongodb+srv://Admin1:15DhA4X99ApnacqZ@certifiscluster.btf5x.mongodb.net/org?retryWrites=true&w=majority"
+        "devurl": "mongodb://localhost:27017/orgs",
+        "url": "mongodb+srv://Admin1:15DhA4X99ApnacqZ@certifiscluster.btf5x.mongodb.net/orgs?retryWrites=true&w=majority"
+    },
+    "email": {
+        "user": "certifis.cf@gmail.com",
+        "pass": "certifis@123"
     }
 }
