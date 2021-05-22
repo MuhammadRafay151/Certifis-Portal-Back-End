@@ -20,9 +20,8 @@ router.post('/', OrgContactValidation, async (req, res) => {
 
         var cont = new OrgContact({
             name: req.body.name,
-            email: result.email,
+            email: req.body.email,
             orgname: result.name,
-            subject: req.body.subject,
             description: req.body.description,
             request_date: Date.now()
         })
@@ -32,8 +31,15 @@ router.post('/', OrgContactValidation, async (req, res) => {
                 {
                     from: `${req.body.name} <certifis.cf@gmail.com> `,
                     to: `${result.email}`,
-                    subject: `${req.body.subject}`,
-                    text: `${req.body.description}`
+                    subject: `BlockChain service request`,
+                    text: `${req.body.description}
+                    
+
+                    
+My contact info are as follows:
+Name : ${req.body.name},
+Email : ${req.body.email}
+`
                 }
             )
             res.status(204).send("email sended successfully")

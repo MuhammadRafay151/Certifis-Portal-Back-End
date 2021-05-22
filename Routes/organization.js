@@ -15,7 +15,13 @@ router.post('/', OrganizationValidation, async (req, res) => {
 
     var org = new organization({
         name: req.body.name,
-        email: req.body.email
+        email: req.body.email,
+        phone: req.body.phone,
+        iso2: req.body.iso2,
+        country_code: req.body.country_code,
+        address: req.body.address
+
+
     })
     try {
         var r1 = await org.save()
@@ -37,7 +43,11 @@ router.put('/:id', OrganizationValidation, async (req, res) => {
     try {
         let org = await organization.findOneAndUpdate({ _id: req.params.id }, {
             name: req.body.name,
-            email: req.body.email
+            email: req.body.email,
+            phone: req.body.phone,
+            iso2: req.body.iso2,
+            country_code: req.body.country_code,
+            address: req.body.address
         }, { new: true })
         res.json(org)
     }

@@ -8,7 +8,7 @@ const OrgContact = mongoose.Schema({
         type: String,
         required: true
     },
-    subject: {
+    email: {
         type: String,
         required: true
     },

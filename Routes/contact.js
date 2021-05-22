@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router()
 const contact = require('../models/contact');
-var pagination = require('./../js/pagination');
 const { ContactValidation } = require("../Validations/validation")
 const { validationResult } = require('express-validator')
 
