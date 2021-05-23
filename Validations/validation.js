@@ -10,6 +10,11 @@ const ContactValidation = [
 
 
 ]
+const LoginValidator = [
+    check("password", "password is required").notEmpty(),
+    check("email", "email is required").notEmpty(),
+    check("email", "Invalid email address").isEmail(),
+]
 
 const OrganizationValidation = [
     check("name", "name is required").notEmpty(),
@@ -27,4 +32,12 @@ const OrgContactValidation = [
     check("email", "email is required").notEmpty(),
 
 ]
-module.exports = { ContactValidation, OrganizationValidation, OrgContactValidation }
+
+const RegisterValidator = [
+    check("name", "Name is required").notEmpty(),
+    check("email", "email is required").notEmpty(),
+    check("email", "Invalid email address").isEmail(),
+    check("password", "password is required").notEmpty(),
+
+]
+module.exports = { ContactValidation, OrganizationValidation, OrgContactValidation, LoginValidator, RegisterValidator }

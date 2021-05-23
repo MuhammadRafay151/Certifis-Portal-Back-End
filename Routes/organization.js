@@ -3,10 +3,11 @@ const router = express.Router()
 const organization = require('../models/organization');
 const { OrganizationValidation } = require("../Validations/validation")
 const { validationResult } = require('express-validator')
+const Auth = require('../Auth/Auth')
 
 
 
-router.post('/', OrganizationValidation, async (req, res) => {
+router.post('/', Auth.authenticateToken, OrganizationValidation, async (req, res) => {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -32,7 +33,7 @@ router.post('/', OrganizationValidation, async (req, res) => {
     }
 })
 
-router.put('/:id', OrganizationValidation, async (req, res) => {
+router.put('/:id',Auth.authenticateToken, OrganizationValidation, async (req, res) => {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -56,7 +57,7 @@ router.put('/:id', OrganizationValidation, async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',Auth.authenticateToken, async (req, res) => {
 
 
     try {
@@ -70,13 +71,13 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-router.get("/", async (req, res) => {
+router.get("/",Auth.authenticateToken, async (req, res) => {
 
     var result = await organization.find().sort({ request_date: "-1" });;
     res.json(result)
 })
 
-router.get("/DeleteAll", async (req, res) => {
+router.get("/DeleteAll",Auth.authenticateToken, async (req, res) => {
 
     var result = await organization.deleteMany({})
     res.json(result)
