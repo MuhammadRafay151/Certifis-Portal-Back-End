@@ -59,9 +59,9 @@ router.post('/login', LoginValidator, async function (req, res) {
       let token_data = { uid: response._id, email: response.email, name: response.name }
 
       var token = await Auth.generateAccessToken(token_data)
-      console.log(token)
+     
       var RefreshToken = await Auth.generateRefreshToken(token_data)
-      console.log(RefreshToken)
+    
 
       await new RFT({ token: RefreshToken, userid: response._id }).save()
       delete response._doc.password

@@ -33,8 +33,9 @@ router.post('/', Auth.authenticateToken, OrganizationValidation, async (req, res
     }
 })
 
-router.put('/:id',Auth.authenticateToken, OrganizationValidation, async (req, res) => {
+router.put('/:id', OrganizationValidation, async (req, res) => {
 
+   
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -57,7 +58,7 @@ router.put('/:id',Auth.authenticateToken, OrganizationValidation, async (req, re
     }
 })
 
-router.delete('/:id',Auth.authenticateToken, async (req, res) => {
+router.delete('/:id', Auth.authenticateToken, async (req, res) => {
 
 
     try {
@@ -71,13 +72,13 @@ router.delete('/:id',Auth.authenticateToken, async (req, res) => {
     }
 })
 
-router.get("/",Auth.authenticateToken, async (req, res) => {
+router.get("/", async (req, res) => {
 
     var result = await organization.find().sort({ request_date: "-1" });;
     res.json(result)
 })
 
-router.get("/DeleteAll",Auth.authenticateToken, async (req, res) => {
+router.get("/DeleteAll", Auth.authenticateToken, async (req, res) => {
 
     var result = await organization.deleteMany({})
     res.json(result)
