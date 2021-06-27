@@ -1,7 +1,7 @@
 const { check } = require("express-validator")
 const ContactValidation = [
     check('email').isEmail(),
-    check("name", "name is required").notEmpty(),
+    check("name", "Name is required").notEmpty(),
     check("orgname", "Organisation Name is required").notEmpty(),
     check("subject", "subject is required").notEmpty(),
     check("email", "email is required").notEmpty(),
